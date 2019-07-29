@@ -1,23 +1,18 @@
 The conda ecosystem favours shared libaries, so let's build one.
 
 diff --git a/configure.ac b/configure.ac
-index 15854fc..17302fb 100644
+index b281f84..816ac09 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -2,10 +2,11 @@ dnl Process this file with autoconf to produce a configure script.
- AC_INIT(ltl, 2.0.19)
- AC_CONFIG_SRCDIR(ltl/marray.h)
- AC_CANONICAL_SYSTEM
--AM_INIT_AUTOMAKE([tar-ustar])
-+AM_INIT_AUTOMAKE([tar-ustar subdir-objects])
+@@ -6,6 +6,7 @@ AM_INIT_AUTOMAKE([tar-ustar subdir-objects])
  AC_CONFIG_HEADER(ltl/acconfig.h)
  
  dnl Checks for C++ compiler and deal with compiler options
 +LT_INIT([shared disable-static])
  AC_LANG_CPLUSPLUS
+ cxx_intel_compiler=no
  test ".$CXXFLAGS" = "." && CXXFLAGS=""
- AC_PROG_CXX
-@@ -88,7 +89,6 @@ AC_SYS_LARGEFILE_SENSITIVE
+@@ -90,7 +91,6 @@ AC_SYS_LARGEFILE_SENSITIVE
  AC_SYS_LARGEFILE
  
  AC_PROG_CXXCPP
@@ -26,12 +21,12 @@ index 15854fc..17302fb 100644
  dnl Checks for libraries.
  
 diff --git a/ltl/Makefile.am b/ltl/Makefile.am
-index 8982c97..2dc3af5 100644
+index 8982c97..3d175fd 100644
 --- a/ltl/Makefile.am
 +++ b/ltl/Makefile.am
 @@ -1,6 +1,6 @@
 -lib_LIBRARIES = libltl.a 
-+lib_LTLIBRARIES = libltl.la
++lib_LTLIBRARIES = libltl.la 
  
 -libltl_a_SOURCES = 				\
 +libltl_la_SOURCES = 				\
