@@ -12,8 +12,9 @@ fi
 # Regenerate the configure script since we're patching configure.ac.
 autoreconf -if
 # Explicitly specify BLAS and LAPACK libraries. Not necessary on Linux,
-# but on macOS it links against the wrong libraries otherwise.
-./configure --prefix=${PREFIX} --with-blas=blas --with-lapack=lapack
+# but on macOS it links against the Accelerate libraries otherwise, which
+# are not LAPACK 3.8.0 conformant.
+./configure --prefix=${PREFIX}  --with-blas=blas --with-lapack=lapack
 make
 make check
 make install

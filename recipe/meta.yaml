@@ -1,5 +1,5 @@
 {% set name = "ltl" %}
-{% set version = "2.0.19" %}
+{% set version = "2.0.22" %}
 
 package:
   name: {{ name }}
@@ -7,11 +7,9 @@ package:
 
 source:
   url: http://www.as.utexas.edu/~drory/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 5f2f37220edd6aff55c9420745daf515e7f447b7a19a5f1250fe95d476384261
+  sha256: c2ec17f40b3719fd9c13b345b8101aaba4a3360f733fd259e613ebe88aabbdd4
   patches:
     - 0001_Build_shared_lib.patch
-    - 0002_Fix_test_typo.patch
-    - 0003_Fix_blas_retun_type.patch
 
 build:
   number: 0
