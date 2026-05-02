@@ -5,7 +5,7 @@
 # See:
 # - https://github.com/conda/conda-build/issues/3097
 # - https://stackoverflow.com/a/49119902/2427624
-CXXFLAGS="${CXXFLAGS} -std=c++14"
+CXXFLAGS="${CXXFLAGS} -std=c++14 -Wno-deprecated"
 
 # Regenerate the configure script since we're patching configure.ac.
 autoreconf -if
