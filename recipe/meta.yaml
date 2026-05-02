@@ -14,7 +14,7 @@ source:
     - 0003_Fix_blas_retun_type.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
@@ -31,6 +31,7 @@ build:
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - {{ stdlib('c') }}
     - make
     - autoconf
     - automake
@@ -61,4 +62,4 @@ about:
 
 extra:
   recipe-maintainers:
-    - teake
+    - drbixx
